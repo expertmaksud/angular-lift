@@ -1,0 +1,127 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+    <ng-template matStepLabel>SELECT BENEFITS</ng-template>
+      Please navigate to resource step to check PrimeNgGrid
+    <br>
+    <div class="float-right">
+      <button mat-raised-button color="primary" matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>PEOPLE</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+    </form>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RESOURCES</ng-template>
+    <mat-horizontal-stepper [linear]="isLinear" #resourceStepper>
+      <mat-step>
+        <ng-template matStepLabel>Resources</ng-template>
+        <div>
+          <ssp-screener-resources></ssp-screener-resources>
+        </div>
+        <br>
+        <div class="container float-left">
+
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Pending Claims</ng-template>
+
+        <br>
+        <div class="container float-left">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Sell/Trade</ng-template>
+
+        <br>
+        <div class="container float-left">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Real Estates</ng-template>
+
+        <br>
+        <div class="container float-left">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Personal Property</ng-template>
+
+        <br>
+        <div class="container float-left">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Emergency Contact</ng-template>
+
+        <br>
+        <div class="container float-left">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+
+        </div>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" matStepperNext>Next</button>
+
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>INCOME</ng-template>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>EXPENSES</ng-template>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>PROGRAMS</ng-template>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>REVIEW AND SUBMIT</ng-template>
+    <div class="float-right">
+      <button mat-raised-button color="primary" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" class="ml-2" (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

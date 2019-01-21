@@ -1,0 +1,61 @@
+<div class="grid-container">
+  <div fxLayout="column" fxLayoutAlign="sspace-evenly stretch" fxLayoutGap="10px">
+
+    <div fxFlex>
+      <mat-card >
+        <mat-card-header>
+          <mat-card-title>
+            <h5>Apply / Quick Check</h5>
+          </mat-card-title>
+          <mat-card-subtitle>What would you like to do?</mat-card-subtitle>
+
+        </mat-card-header>
+        <mat-card-content>
+          <form>
+            <mat-radio-group [(ngModel)]="selectedScreener" name="rdioScreener">
+              <div>
+                <div>
+                  <mat-radio-button [value]="0">
+                    <b>Create a new application</b>
+                  </mat-radio-button>
+                </div>
+                <div class=" col-12 alert alert-info" role="alert">
+                  <p class="mb-0">You can apply for social services online in about 20-45 minutes depending on the services you select and
+                    the number of individuals in your household.</p>
+                </div>
+              </div>
+              <div >
+                <div>
+                  <mat-radio-button [value]="1">
+                    <b>Find out if you might be eligible for benefits</b>
+                  </mat-radio-button>
+                </div>
+                <div class="col-12 alert alert-info" role="alert">
+                  <p class="mb-0">You can screen online to see if you and your family qualify for Health and Social Services. Screening takes
+                    about 10-15 minutes.</p>
+                </div>
+              </div>
+            </mat-radio-group>
+          </form>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onContinueClick()">Continue</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxFlex>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Application List
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,260 @@
+{
+  "states": [{
+      "id": 1,
+      "name": "Alabama",
+      "value": "Alabama"
+    }, {
+      "id": 2,
+      "name": "Alaska",
+      "value": "Alaska"
+    },
+    {
+      "name": "Arizona",
+      "value": "Arizona"
+    }, {
+      "name": "Arkansas",
+      "value": "Arkansas"
+    }, {
+      "name": "California",
+      "value": "California"
+    }, {
+      "name": "Colorado",
+      "value": "Colorado"
+    }, {
+      "name": "Connecticut",
+      "value": "Connecticut"
+    }, {
+      "name": "Delaware",
+      "value": "Delaware"
+
+    },
+    {
+      "name": "Florida",
+      "value": "Florida"
+    }, {
+      "name": "Georgia",
+      "value": "Georgia"
+    }, {
+      "name": "Hawaii",
+      "value": "Hawaii"
+    }, {
+      "name": "Idaho",
+      "value": "Idaho"
+    }, {
+      "name": "Illinois",
+      "value": "Illinois"
+    }, {
+      "name": "Indiana",
+      "value": "Indiana"
+    }, {
+      "name": "Iowa",
+      "value": "Iowa"
+    }, {
+      "name": "Kansas",
+      "value": "Kansas"
+    }, {
+      "name": "Kentucky",
+      "value": "Kentucky"
+    },
+    {
+      "name": "Louisiana",
+      "value": "Louisiana"
+    }, {
+      "name": "Maine",
+      "value": "Maine"
+    }, {
+      "name": "Maryland",
+      "value": "Maryland"
+    }, {
+      "name": "Massachusetts",
+      "value": "Massachusetts"
+    }, {
+      "name": "Michigan",
+      "value": "Michigan"
+    }, {
+      "name": "Minnesota",
+      "value": "Minnesota"
+    }, {
+      "name": "Mississippi",
+      "value": "Mississippi"
+    },
+    {
+      "name": "Missouri",
+      "value": "Missouri"
+    }, {
+      "name": "Montana",
+      "value": "Montana"
+    }, {
+      "name": "Nebraska",
+      "value": "Nebraska"
+    }, {
+      "name": "Nevada",
+      "value": "Nevada"
+    }, {
+      "name": "New Hampshire",
+      "value": "New Hampshire"
+    }, {
+      "name": "New Jersey",
+      "value": "New Jersey"
+    }, {
+      "name": "New Mexico",
+      "value": "New Mexico"
+    },
+    {
+      "name": "New York",
+      "value": "New York"
+    }, {
+      "name": "North Carolina",
+      "value": "North Carolina"
+    }, {
+      "name": "North Dakota",
+      "value": "North Dakota"
+    }, {
+      "name": "Ohio",
+      "value": "Ohio"
+    }, {
+      "name": "Oklahoma",
+      "value": "Oklahoma"
+    }, {
+      "name": "Oregon",
+      "value": "Oregon"
+    }, {
+      "name": "Pennsylvania",
+      "value": "Pennsylvania"
+    },
+    {
+      "name": "Rhode Island",
+      "value": "Rhode Island"
+    }, {
+      "name": "South Carolina",
+      "value": "South Carolina"
+    }, {
+      "name": "South Dakota",
+      "value": "South Dakota"
+    }, {
+      "name": "Tennessee",
+      "value": "Tennessee"
+    }, {
+      "name": "Texas",
+      "value": "Texas"
+    }, {
+      "name": "Utah",
+      "value": "Utah"
+    }, {
+      "name": "Vermont",
+      "value": "Vermont"
+    },
+    {
+      "name": "Virginia",
+      "value": "Virginia"
+    }, {
+      "name": "Washington",
+      "value": "Washington"
+    }, {
+      "name": "West Virginia",
+      "value": "West Virginia"
+    }, {
+      "name": "Wisconsin",
+      "value": "Wisconsin"
+    }, {
+      "name": "Wyoming",
+      "value": "Wyoming"
+    }
+  ],
+
+  "livingarrangements": [{
+    "id": 1,
+    "name": "Lives Alone",
+    "value": "Lives Alone"
+  }, {
+    "id": 2,
+    "name": "Living with TAFDC case",
+    "value": "Living with TAFDC case"
+  }, {
+    "id": 3,
+    "name": "Institution",
+    "value": "Institution"
+  }, {
+    "id": 4,
+    "name": "Homeless",
+    "value": "Homeless"
+  }, {
+    "id": 5,
+    "name": "Rest Home",
+    "value": "Rest Home"
+  }, {
+    "id": 6,
+    "name": "Living with EAEDC case",
+    "value": "Living with EAEDC case"
+  }],
+
+  "taxstatus": [{
+    "id": 1,
+    "name": "Single",
+    "value": "Single"
+  }, {
+    "id": 2,
+    "name": "Married Filing Jointly",
+    "value": "Married Filing Jointly"
+  }, {
+    "id": 3,
+    "name": "Married Filing Separately",
+    "value": "Married Filing Separately"
+  }],
+
+  "resources": [{
+    "id": 1,
+    "resourceType": 1,
+    "owns": "John Smith",
+    "worth": 2000,
+    "isSingle": "true",
+    "bankName": "Standard Chartard",
+    "acNumber": "01610188976",
+    "location": "Alaska"
+  },
+  {
+    "id": 2,
+    "resourceType": 2,
+    "owns": "John Snow",
+    "worth":4000,
+    "isSingle": "true",
+    "bankName": "Standard Chartard",
+    "acNumber": "01610188976",
+    "location": "Alaska"
+  },
+  {
+    "id": 2,
+    "resourceType": 2,
+    "owns": "John Smith",
+    "worth": 5000,
+    "isSingle": "false",
+    "bankName": "Standard Chartard",
+    "acNumber": "01610188976",
+    "location": "Arkansas"
+  }],
+  "resourcetypes" : [
+    { "id": 1, "name": "Mortgages/Deeds", "value": false },
+    { "id": 2, "name": "Retirement Plans", "value": false },
+    { "id": 3, "name": "Money Market", "value": false },
+    { "id": 4, "name": "Trust Fund", "value": false },
+    { "id": 5, "name": "Checking Account", "value": false },
+    { "id": 6, "name": "Savings Account", "value": false },
+    { "id": 7, "name": "Certificate Of Deposits", "value": false },
+    { "id": 8, "name": "Stocks/Bonds", "value": false },
+    { "id": 9, "name": "Other Liquid Properties", "value": false },
+    { "id": 10, "name": "Credit Union Accounts", "value": false },
+    { "id": 11, "name": "Oil, Mining, Mineral Rights", "value": false },
+    { "id": 12, "name": "Burial/Funeral Arrangements, Burial Trues And Plots", "value": false },
+    { "id": 13, "name": "IRA Or Keogh Plans", "value": false },
+    { "id": 14, "name": "Employee Deferred Compensation Plans", "value": false },
+    { "id": 15, "name": "Life Insurance Or Annuity", "value": false },
+    { "id": 16, "name": "Life Estate Insurance In Any Property", "value": false },
+    { "id": 17, "name": "Other Assets", "value": false },
+    { "id": 18, "name": "Cash", "value": false },
+    { "id": 19, "name": "Own A Vehicle Or Own One With Another Person", "value": false },
+    { "id": 20, "name": "Own Property", "value": false },
+    { "id": 21, "name": "Promissory Notes", "value": false },
+    { "id": 22, "name": "None of the Above", "value": false }
+  ]
+
+}

@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="sspace-evenly stretch" fxLayoutGap="10px">
+  <div class="col-12" fxFlex.sm="100%" fxFlex="30%">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h5>RESOURCES</h5>
+        </mat-card-title>
+        <mat-card-subtitle>Please check all that apply.</mat-card-subtitle>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly none" fxLayoutGap="5px">
+          <div fxFlex="25%" fxFlex.sm="100%" fxFlex.lt-sm="100%" *ngFor="let item of resourceTypesdata; let i = index;">
+            <mat-checkbox [checked]="item.value" (change)="onChange($event, i, item)">
+              {{item.name}}
+            </mat-checkbox>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-12" fxFlex.sm="100%" fxFlex="70%">
+    <mat-card>
+      <mat-card-content>
+        <ng-template #dynamicGrid></ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<p-confirmDialog header="Warning" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>

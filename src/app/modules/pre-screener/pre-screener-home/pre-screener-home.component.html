@@ -1,0 +1,181 @@
+<form [formGroup]="homeFormGroup">
+  <div fxLayout="column" fxLayoutAlign="sspace-evenly stretch" fxLayoutGap="10px">
+
+    <div class="col-12" fxFlex="10%">
+      <mat-card>
+        <mat-card-header class="row">
+          <mat-card-title class="col-12">
+            <h4> HOME</h4>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="col-12 alert alert-info" role="alert">
+            <p class="mb-0"> Please tell about yourself so we can get an idea of which programs the people in your home may qualify for. Keep
+              in mind that you can always click the help button if you have aquestion about what we're asking.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-12" fxFlex="20%">
+      <mat-card>
+        <mat-card-header class="row">
+          <mat-card-title class="col-12">
+            <h6>TELL US ABOUT YOUR HOME</h6>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout fxLayoutAlign="sspace-evenly stretch" fxLayout.xs="column">
+          <div fxFlex>
+            <mat-form-field class="col-12" hintLabel="Don't forget to count yourself">
+              <input matInput pattern="\d*" maxlength="2" placeholder="How many people live in your home?" formControlName="totalPersonCtrl"
+                required>
+
+              <mat-error *ngIf="totalPersonCtrl.hasError('required')">
+                Member count
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="totalPersonCtrl.hasError('min') || totalPersonCtrl.hasError('max')">
+                Household member count cannot be less than 1 or more than 21. Please enter a value greater than 0 and less than 21 to proceed
+              </mat-error>
+
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <input matInput pattern="\d*" maxlength="2" placeholder="How many of those people are under 19 years old?" formControlName="under19PersonCtrl"
+                required>
+              <mat-error *ngIf="under19PersonCtrl.hasError('required')">
+                Children count
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="col-12">
+              <input matInput pattern="\d*" maxlength="2" placeholder="How many of those are 19 to 59 years old?" formControlName="btw19to59PersonCtrl"
+                required>
+              <mat-error *ngIf="btw19to59PersonCtrl.hasError('required')">
+                Adult count
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <input matInput pattern="\d*" maxlength="2" placeholder="How many of those are 60 years old or older?" formControlName="over60PersonCtrl"
+                required>
+              <mat-error *ngIf="btw19to59PersonCtrl.hasError('required')">
+                Elder count
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-12" fxFlex="25%">
+      <mat-card>
+        <mat-card-header class="row">
+          <mat-card-title class="col-12">
+            <h6>YOU</h6>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout fxLayoutAlign="sspace-evenly stretch" fxLayout.xs="column">
+          <div fxFlex>
+            <mat-form-field class="col-12">
+              <input matInput maxlength="25" placeholder="First Name" formControlName="firstNameCtrl" required>
+              <mat-error *ngIf="firstNameCtrl.hasError('required')">
+                First name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <input matInput maxlength="25" placeholder="Middle Name" formControlName="middleNameCtrl">
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <input matInput maxlength="2" placeholder="Age" formControlName="ageCtrl" required>
+              <mat-error *ngIf="ageCtrl.hasError('required')">
+                Age is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="ageCtrl.hasError('min') || ageCtrl.hasError('max')">
+                Enter age less than or equal to 120 years of age.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="col-12">
+              <input matInput maxlength="25" placeholder="Last Name" formControlName="lastNameCtrl" required>
+              <mat-error *ngIf="lastNameCtrl.hasError('required')">
+                Last name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-select placeholder="Gender" formControlName="genderCtrl" required>
+                <mat-option>Male</mat-option>
+                <mat-option>Female</mat-option>
+              </mat-select>
+              <mat-error *ngIf="genderCtrl.hasError('required')">
+                Gender is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+
+              <mat-select placeholder="Income tax filing status" formControlName="taxStatusCtrl" required>
+                <mat-option *ngFor="let tax of taxStatus" [value]="tax.value">
+                  {{tax.name}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="taxStatusCtrl.hasError('required')">
+                Status is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-12" fxFlex="15%">
+      <mat-card>
+        <mat-card-header class="row">
+          <mat-card-title class="col-12">
+            <h6>ADDRESS INFORMATION</h6>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout fxLayoutAlign="sspace-evenly stretch" fxLayout.fx="column">
+          <div fxFlex.sm="100%">
+            <mat-form-field class="col-12">
+              <mat-select placeholder="What is your living arrangement?" formControlName="livingCtrl" required>
+                  <mat-option *ngFor="let arrangement of livingArrangements" [value]="arrangement.value">
+                      {{arrangement.name}}
+                    </mat-option>
+              </mat-select>
+              <mat-error *ngIf="livingCtrl.hasError('required')">
+                Living Arrangemnts is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <input type="text" placeholder="Which state do you live in?" aria-label="Number" matInput [formControl]="stateCtrl" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.value">
+                  {{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="stateCtrl.hasError('required')">
+                State is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</form>

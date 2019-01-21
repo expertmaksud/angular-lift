@@ -1,0 +1,143 @@
+<div class="row mb-2">
+  <div class="col-12">
+    <p-table #dt [responsive]="true" [value]="resources" [columns]="selectedColumns" selectionMode="single" [(selection)]="selectedResource"
+      [globalFilterFields]="['owns','worth','bankName','acNumber','location','isSingle']">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <div class="col-md-3 col-sm-12 text-left">
+            <h5>{{resourceType}}</h5>
+          </div>
+          <div class="col-5 col-md-5 col-sm-12 text-right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText class="col-11" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')"
+              style="height:40px">
+          </div>
+          <div class="col-2 col-md-2 col-sm-12 text-right ">
+            <p-multiSelect [options]="cols" class="col-12" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
+              defaultLabel="Choose Columns" class="text-left"></p-multiSelect>
+          </div>
+          <div class="col-md-2 com-sm-12 text-right">
+            <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="Export All Data" (click)="dt.exportCSV()"></button>
+          </div>
+
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            <span class="ui-column-title">{{col.header}}</span>
+            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+          </th>
+          <th style="width:10%">
+            <span class="ui-column-title">Actions</span>
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns" [ngSwitch]="col.field">
+            <p-multiSelect *ngSwitchCase="'owns'" class="col-12" [style]="{minWidth: '95%'}" [options]="owners" defaultLabel="All" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+            <input *ngSwitchCase="'worth'" pInputText class="col-12" type="number" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            <p-multiSelect *ngSwitchCase="'isSingle'" class="col-12" [style]="{minWidth: '95%'}" [options]="singleOrJoint" defaultLabel="All"
+              (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+            <input *ngSwitchCase="'bankName'" pInputText class="col-12" type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            <input *ngSwitchCase="'acNumber'" pInputText class="col-12" type="number" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            <input *ngSwitchCase="'location'" pInputText class="col-12" type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+          </th>
+          <th style="width:10%"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-resource let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{resource[col.field]}}
+          </td>
+          <td>
+            <button type="button" pButton class="mr-2" (click)="editResource(resource)" icon="fa fa-pencil"></button>
+            <button type="button" pButton (click)="deleteResource(resource)" icon="fa fa-trash-o"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+          <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<div class="row">
+  <form novalidate (ngSubmit)="onSubmit(resourceFormGroup)" [formGroup]="resourceFormGroup">
+    <p-dialog header="{{formTitle}}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="500">
+
+      <div class="row" *ngIf="resource">
+
+        <div class="col-12">
+          <!-- <p-dropdown class="col-12" [options]="owners" formControlName="owns" placeholder="Who owns?" optionLabel="name" [showClear]="true"></p-dropdown>
+            <mat-select placeholder="Who owns?" style="z-index:1220" formControlName="owns" required>
+              <mat-option value="John Snow">John Snow</mat-option>
+              <mat-option value="John Smith">John Smith</mat-option>
+              <mat-option value="Maria">Maria</mat-option>
+            </mat-select>-->
+          <mat-form-field class="col-12">
+            <input matInput placeholder="Who owns?" formControlName="owns" required>
+            <mat-error *ngIf="resourceFormGroup.get('owns').hasError('required')">
+              Who owns
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="col-12 ">
+            <input matInput pattern="\d*" maxlength="10" placeholder="How much is the resource worth?" formControlName="worth" required>
+            <mat-error *ngIf="resourceFormGroup.get('worth').hasError('required')">
+              Resource worth
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="col-12 ">
+            <input matInput placeholder="Single/Joint owner?" formControlName="isSingle" required>
+            <mat-error *ngIf="resourceFormGroup.get('isSingle').hasError('required')">
+              Single/Joint owner
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="col-12 ">
+            <input matInput placeholder="Bank/Institution Name" formControlName="bankName" required>
+            <mat-error *ngIf="resourceFormGroup.get('bankName').hasError('required')">
+              Bank/Institution Name
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="col-12 ">
+            <input matInput placeholder="Account Number" formControlName="acNumber">
+
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="col-12 ">
+            <input matInput placeholder="Location" formControlName="location">
+
+          </mat-form-field>
+        </div>
+
+      </div>
+      <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button type="button" pButton class="mr-2" icon="fa fa-close" (click)="cancel()" label="Cancel"></button>
+          <button type="button" [disabled]="resourceFormGroup.invalid" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+        </div>
+      </p-footer>
+
+    </p-dialog>
+  </form>
+
+</div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
