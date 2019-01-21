@@ -1,6 +1,25 @@
 # SocialServicePortal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2. 
+
+In this application i follow [LIFT Architecture](https://angular.io/guide/styleguide#application-structure-and-ngmodules) use [RxJs](https://angular.io/guide/rx-library), [Reactive Form](https://angular.io/guide/reactive-forms),
+[Angular Material](https://material.angular.io), [PrimeNg](https://www.primefaces.org/primeng/#/), 
+[Angular Flex Layout](https://github.com/angular/flex-layout), BootStrap
+
+## Run the API
+
+For fake REST API i use [Json-Server](https://github.com/typicode/json-server), to run the api 
+
+Install JSON Server 
+
+```
+npm install -g json-server
+```
+navigate to DB folder then Start JSON Server
+
+```bash
+json-server --watch db.json
+```
 
 ## Development server
 
